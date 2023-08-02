@@ -272,6 +272,26 @@ private:
     StateClass m_stateClass = StateClass::NONE;
 };
 
+class MqttEvent : public MqttEntity
+{
+public:
+    MqttEvent(MqttDevice *device, const char *objectId, const char *humanName)
+        : MqttEntity(device, objectId, "event", humanName)
+    {
+        setHasCommandTopic(true);
+    }
+
+
+protected:
+    virtual void addConfig(DynamicJsonDocument &doc)
+    {
+
+    }
+
+private:
+
+};
+
 class MqttSwitch : public MqttEntity
 {
 public:
